@@ -25,6 +25,18 @@ python3 -m http.server 8080
 # puis ouvrir http://localhost:8080
 ```
 
+## Mettre en ligne sur Render
+
+Le fichier `render.yaml` contient toute la configuration.
+
+1. Sur https://dashboard.render.com : **New → Blueprint**, choisissez le dépôt `fannis-store`, puis **Apply**.
+2. Ou manuellement : **New → Static Site**, dépôt `fannis-store`, branche `main`,
+   *Build Command* : `echo "ok"`, *Publish Directory* : `.`
+3. Aucune variable d'environnement n'est nécessaire.
+4. Nom de domaine : *Settings → Custom Domains* du service.
+
+Chaque envoi (push) sur `main` redéploie automatiquement le site.
+
 ## Personnaliser
 
 Tout se règle dans **`assets/js/data.js`** :
