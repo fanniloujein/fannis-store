@@ -72,7 +72,7 @@
   /* ---------- Petites étincelles au clic ---------- */
   F.burst = (x, y, n = 10) => {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const colors = ["#c29a52", "#e6cf98", "#e8703e", "#d9a5a0"];
+    const colors = ["#f2a900", "#ffd766", "#f47920", "#62b88b"];
     for (let i = 0; i < n; i++) {
       const s = document.createElement("span");
       s.className = "burst-star";

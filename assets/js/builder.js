@@ -2,7 +2,7 @@
 (function () {
   const F = window.FANNI, B = F.builder;
   const DRAFT = "fanni_builder";
-  let s = { box: "classique", items: [], card: "classique", to: "", from: "", message: "", wrap: "soie", ribbon: "or", extras: [], step: 0, cat: "all" };
+  let s = { box: "classique", items: [], card: "classique", to: "", from: "", message: "", wrap: "soleil", ribbon: "orange", extras: [], step: 0, cat: "all" };
   try { s = { ...s, ...JSON.parse(localStorage.getItem(DRAFT) || "{}") }; } catch (e) {}
   const save = () => { try { localStorage.setItem(DRAFT, JSON.stringify(s)); } catch (e) {} };
 
@@ -18,7 +18,7 @@
   F.qs("#box-choices").innerHTML = B.boxes.map(b => `<div class="box-choice">
     <input type="radio" name="box" id="box-${b.id}" value="${b.id}" ${s.box === b.id ? "checked" : ""}>
     <label for="box-${b.id}">
-      ${F.art.gift({ v: "box", b: "#f4d6d1", l: "#f8e3df", r: "#c9a25a", bg: "#fbeeea", deco: "sparkle" }, { seed: "bx" + b.id, view: b.id === "prestige" ? 3 : 0, label: "" })}
+      ${F.art.gift({ v: "box", b: "#ff8a3d", l: "#ffa464", r: "#ffc933", bg: "#fff1dc", deco: "sparkle" }, { seed: "bx" + b.id, view: b.id === "prestige" ? 3 : 0, label: "" })}
       <span><b>${F.L(b)}</b><br><small>${F.lang === "ar" ? b.descAr : b.descFr}</small><br><span class="price">${F.money(b.price)}</span></span>
     </label></div>`).join("");
 
@@ -158,7 +158,7 @@
       id: "box-sur-mesure", unique: true,
       name: { fr: "Ma box sur mesure", ar: "علبتي حسب الطلب" },
       price: total(), qty: 1,
-      art: { v: "open", b: wrap().box, l: wrap().lid, r: ribbon().color, bg: "#fbeeea", deco: "sparkle" },
+      art: { v: "open", b: wrap().box, l: wrap().lid, r: ribbon().color, bg: "#fff1dc", deco: "sparkle" },
       options
     });
     F.toast(F.t("b_added", "Votre box sur mesure est dans le panier ✨"), { href: "panier.html", label: F.t("see_cart", "Voir le panier") });

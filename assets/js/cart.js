@@ -29,7 +29,7 @@
       <div>
         <div class="cart-list">
           ${items.map(it => `<div class="cart-item">
-            <a class="thumb" href="${it.id === "box-sur-mesure" ? "creer-ma-box.html" : "produit.html?id=" + it.id}">${it.image ? `<img src="${it.image}" alt="">` : F.art.gift(it.art || { v: "box", b: "#f4d6d1", r: "#c9a25a" }, { seed: it.id, label: "" })}</a>
+            <a class="thumb" href="${it.id === "box-sur-mesure" ? "creer-ma-box.html" : "produit.html?id=" + it.id}">${it.image ? `<img src="${it.image}" alt="">` : F.art.gift(it.art || { v: "box", b: "#ffe3cc", r: "#ffc933" }, { seed: it.id, label: "" })}</a>
             <div>
               <h3>${F.esc(F.L(it.name))}</h3>
               <p class="opts">${Object.entries(it.options || {}).map(([k, v]) => `<span><b>${L[k] || k} :</b> ${F.esc(v)}</span>`).join("")}</p>

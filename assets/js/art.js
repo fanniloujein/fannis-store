@@ -46,9 +46,9 @@
       case "heart": return `<path fill="${c}" d="M0 12C-22 -4 -12 -22 0 -10C12 -22 22 -4 0 12Z"/>`;
       case "rose": return `<circle r="13" fill="${c}"/><path d="M-6 -2c3-6 12-5 11 2s-10 8-13 2 3-11 9-11" fill="none" stroke="${shade(c, -40)}" stroke-width="1.6" stroke-linecap="round"/><path fill="#6f9a7e" d="M-4 12c-8 0-12 6-12 6s8 2 12-6zM4 12c8 0 12 6 12 6s-8 2-12-6z"/>`;
       case "rings": return `<circle cx="-7" r="10" fill="none" stroke="${c}" stroke-width="3"/><circle cx="7" r="10" fill="none" stroke="${c}" stroke-width="3"/>${star(-7, -14, 4, c)}`;
-      case "flower": return [0, 72, 144, 216, 288].map(a => `<ellipse rx="6" ry="10" transform="rotate(${a}) translate(0 -9)" fill="${c}"/>`).join("") + `<circle r="5" fill="#e6cf98"/>`;
+      case "flower": return [0, 72, 144, 216, 288].map(a => `<ellipse rx="6" ry="10" transform="rotate(${a}) translate(0 -9)" fill="${c}"/>`).join("") + `<circle r="5" fill="#ffd766"/>`;
       case "thanks": return `<text y="7" text-anchor="middle" font-family="Mansalva, cursive" font-size="22" fill="${c}">merci</text>`;
-      case "cake": return `<rect x="-14" y="-2" width="28" height="14" rx="3" fill="${c}"/><rect x="-14" y="-2" width="28" height="4" fill="#fff" opacity=".6"/><rect x="-1.5" y="-14" width="3" height="11" fill="${shade(c, -30)}"/><path d="M0 -22c3 3 3 6 0 7c-3-1-3-4 0-7z" fill="#e8703e"/>`;
+      case "cake": return `<rect x="-14" y="-2" width="28" height="14" rx="3" fill="${c}"/><rect x="-14" y="-2" width="28" height="4" fill="#fff" opacity=".6"/><rect x="-1.5" y="-14" width="3" height="11" fill="${shade(c, -30)}"/><path d="M0 -22c3 3 3 6 0 7c-3-1-3-4 0-7z" fill="#f47920"/>`;
       case "baby": return `<path fill="${c}" d="M6 -14A14 14 0 1 0 6 14A11 11 0 1 1 6 -14Z"/>${star(10, -6, 5, c)}`;
       case "star":
       case "sparkle":
@@ -60,7 +60,7 @@
   function boxSquare(a) {
     const b = a.b, l = a.l || shade(b, 12), r = a.r;
     return `
-      <ellipse cx="200" cy="396" rx="138" ry="13" fill="#3b302b" opacity=".10"/>
+      <ellipse cx="200" cy="396" rx="138" ry="13" fill="#2f2544" opacity=".10"/>
       <rect x="95" y="238" width="210" height="156" rx="4" fill="${b}"/>
       <rect x="235" y="238" width="70" height="156" fill="#000" opacity=".045"/>
       <rect x="95" y="238" width="210" height="14" fill="#000" opacity=".07"/>
@@ -78,7 +78,7 @@
   function boxRound(a) {
     const b = a.b, l = a.l || shade(b, 12), r = a.r;
     return `
-      <ellipse cx="200" cy="404" rx="128" ry="14" fill="#3b302b" opacity=".10"/>
+      <ellipse cx="200" cy="404" rx="128" ry="14" fill="#2f2544" opacity=".10"/>
       <ellipse cx="200" cy="388" rx="96" ry="22" fill="${shade(b, -14)}"/>
       <rect x="104" y="250" width="192" height="138" fill="${b}"/>
       <path d="M250 250h46v138a96 22 0 0 1-46 19z" fill="#000" opacity=".05"/>
@@ -96,14 +96,14 @@
 
   function boxOpen(a, seed) {
     const b = a.b, l = a.l || shade(b, 12), r = a.r, rnd = rng(seed + "open");
-    const tissue = ["#fff", "#fbeeea", "#f4dcd8"];
+    const tissue = ["#fff", "#eaf7ef", "#d6f0e1"];
     const t = [];
     for (let i = 0; i < 7; i++) {
       const x = 100 + i * 32 + rnd() * 10, h = 40 + rnd() * 34;
       t.push(`<path d="M${x - 26} 262 L${x + 4} ${262 - h} L${x + 34} 262Z" fill="${tissue[i % 3]}" opacity=".95"/>`);
     }
     return `
-      <ellipse cx="200" cy="398" rx="150" ry="13" fill="#3b302b" opacity=".10"/>
+      <ellipse cx="200" cy="398" rx="150" ry="13" fill="#2f2544" opacity=".10"/>
       <path d="M232 250 L318 142 L352 162 L278 262Z" fill="${l}"/>
       <path d="M318 142 L352 162 L346 170 L313 150Z" fill="#fff" opacity=".35"/>
       <rect x="92" y="244" width="216" height="24" fill="${shade(b, -26)}"/>
@@ -111,13 +111,13 @@
       <!-- bougie -->
       <rect x="126" y="178" width="44" height="80" rx="6" fill="#f7f1e7"/>
       <rect x="126" y="196" width="44" height="26" fill="${a.r}" opacity=".55"/>
-      <rect x="146" y="166" width="3" height="14" fill="#5c4e47"/>
+      <rect x="146" y="166" width="3" height="14" fill="#4a3f5c"/>
       <path d="M147.5 146c7 8 7 16 0 20c-7-4-7-12 0-20z" fill="#f2b04e"/>
       <path d="M147.5 154c3 4 3 8 0 10c-3-2-3-6 0-10z" fill="#fff5d6"/>
       <!-- roses -->
-      <circle cx="222" cy="206" r="20" fill="#e3a3a0"/><circle cx="252" cy="222" r="17" fill="#d98a8a"/><circle cx="200" cy="228" r="15" fill="#efbcb6"/>
-      <path d="M214 204c4-8 16-6 14 3s-14 9-16 2 4-13 11-12" fill="none" stroke="#b86a6a" stroke-width="1.8"/>
-      <path d="M246 220c3-6 12-4 10 3s-10 6-12 1 3-9 8-9" fill="none" stroke="#a85c5c" stroke-width="1.6"/>
+      <circle cx="222" cy="206" r="20" fill="#ffb347"/><circle cx="252" cy="222" r="17" fill="#f47920"/><circle cx="200" cy="228" r="15" fill="#ffd766"/>
+      <path d="M214 204c4-8 16-6 14 3s-14 9-16 2 4-13 11-12" fill="none" stroke="#c9560a" stroke-width="1.8"/>
+      <path d="M246 220c3-6 12-4 10 3s-10 6-12 1 3-9 8-9" fill="none" stroke="#b34d08" stroke-width="1.6"/>
       <!-- carte -->
       <g transform="rotate(8 270 220)"><rect x="252" y="176" width="54" height="72" rx="3" fill="#fffaf2"/>
       <text x="279" y="210" text-anchor="middle" font-family="Mansalva, cursive" font-size="15" fill="#3e9b78">pour</text>
@@ -132,36 +132,36 @@
   }
 
   function tag(a, dy = 0) {
-    return `<path d="M214 ${214 + dy} C236 ${226 + dy} 250 ${240 + dy} 262 ${268 + dy}" fill="none" stroke="#c29a52" stroke-width="1.4"/>
+    return `<path d="M214 ${214 + dy} C236 ${226 + dy} 250 ${240 + dy} 262 ${268 + dy}" fill="none" stroke="#f2a900" stroke-width="1.4"/>
       <g transform="translate(262 ${268 + dy}) rotate(10)">
         <path d="M-22 0 L-12 -12 L12 -12 L22 0 L22 62 L-22 62Z" fill="#fffaf2"/>
-        <path d="M-22 0 L-12 -12 L12 -12 L22 0 L22 62 L-22 62Z" fill="none" stroke="#e6cf98" stroke-width="1.2"/>
-        <circle cx="0" cy="-3" r="3" fill="none" stroke="#c29a52" stroke-width="1.2"/>
-        <g transform="translate(0 30) scale(.85)">${emblem(a.deco, a.deco === "thanks" ? "#3e9b78" : "#c98f8a")}</g>
+        <path d="M-22 0 L-12 -12 L12 -12 L22 0 L22 62 L-22 62Z" fill="none" stroke="#ffd766" stroke-width="1.2"/>
+        <circle cx="0" cy="-3" r="3" fill="none" stroke="#f2a900" stroke-width="1.2"/>
+        <g transform="translate(0 30) scale(.85)">${emblem(a.deco, a.deco === "thanks" ? "#3e9b78" : "#f47920")}</g>
       </g>`;
   }
 
   function backdrop(a, seed, W = 400, H = 500) {
-    const rnd = rng(seed + "bg"), bg = a.bg || "#fbeeea";
+    const rnd = rng(seed + "bg"), bg = a.bg || "#eaf7ef";
     const petals = [];
     for (let i = 0; i < 5; i++) {
       const x = 40 + rnd() * (W - 80), y = H * 0.84 + rnd() * H * 0.12;
-      petals.push(`<ellipse cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" rx="7" ry="4" transform="rotate(${(rnd() * 180).toFixed(0)} ${x.toFixed(0)} ${y.toFixed(0)})" fill="${i % 2 ? "#e8b9b3" : "#f4d6d1"}"/>`);
+      petals.push(`<ellipse cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" rx="7" ry="4" transform="rotate(${(rnd() * 180).toFixed(0)} ${x.toFixed(0)} ${y.toFixed(0)})" fill="${i % 2 ? "#ffc933" : "#ffe3cc"}"/>`);
     }
     return `
       <rect width="${W}" height="${H}" fill="${bg}"/>
       <circle cx="${W * 0.5}" cy="${H * 0.46}" r="${W * 0.42}" fill="#fff" opacity=".45"/>
       <rect y="${H * 0.79}" width="${W}" height="${H * 0.21}" fill="${shade(bg, -10)}"/>
       <path d="M0 ${H * 0.79} C${W * 0.3} ${H * 0.77} ${W * 0.7} ${H * 0.81} ${W} ${H * 0.79}" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/>
-      <path d="M-10 ${H * 0.9} C${W * 0.2} ${H * 0.84} ${W * 0.35} ${H * 0.98} ${W * 0.6} ${H * 0.92} S${W * 0.9} ${H * 0.86} ${W + 10} ${H * 0.95}" fill="none" stroke="${a.r || "#e8b9b3"}" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+      <path d="M-10 ${H * 0.9} C${W * 0.2} ${H * 0.84} ${W * 0.35} ${H * 0.98} ${W * 0.6} ${H * 0.92} S${W * 0.9} ${H * 0.86} ${W + 10} ${H * 0.95}" fill="none" stroke="${a.r || "#ffc933"}" stroke-width="7" stroke-linecap="round" opacity=".55"/>
       ${petals.join("")}`;
   }
 
-  function sparkles(seed, n = 6, W = 400, H = 500, color = "#c29a52") {
+  function sparkles(seed, n = 6, W = 400, H = 500, color = "#f2a900") {
     const rnd = rng(seed + "sp"), out = [];
     for (let i = 0; i < n; i++) {
       const x = 30 + rnd() * (W - 60), y = 30 + rnd() * H * 0.36, r = 4 + rnd() * 9;
-      out.push(star(+x.toFixed(1), +y.toFixed(1), +r.toFixed(1), i === 0 ? "#e8703e" : color, 0.55 + rnd() * 0.45));
+      out.push(star(+x.toFixed(1), +y.toFixed(1), +r.toFixed(1), i === 0 ? "#f47920" : color, 0.55 + rnd() * 0.45));
     }
     return out.join("");
   }
@@ -200,13 +200,13 @@
   /* scène d'accueil (plusieurs box) */
   F.art.hero = function () {
     const W = 460, H = 530, seed = "hero";
-    const bg = { bg: "#f7e4df", r: "#c9a25a" };
+    const bg = { bg: "#eaf7ef", r: "#ffc933" };
     return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Box cadeaux emballées avec des rubans de soie">
       ${backdrop(bg, seed, W, H)}
-      <circle cx="120" cy="120" r="70" fill="#dcf1e5" opacity=".6"/>
-      <g transform="translate(80 -40) scale(1)">${boxSquare({ b: "#f5eee2", l: "#fbf6ec", r: "#c9a25a", deco: "rings" })}</g>
-      <g transform="translate(-40 170) scale(.72)">${boxRound({ b: "#e7b3ae", l: "#f0c8c3", r: "#fbf6ec", deco: "heart" })}</g>
-      <g transform="translate(245 250) scale(.52)">${boxSquare({ b: "#cfe9dc", l: "#dcf1e5", r: "#e8b9b3", deco: "star" })}</g>
+      <circle cx="120" cy="120" r="70" fill="#ffe3cc" opacity=".8"/>
+      <g transform="translate(80 -40) scale(1)">${boxSquare({ b: "#3e9b78", l: "#4da37d", r: "#ffc933", deco: "rings" })}</g>
+      <g transform="translate(-40 170) scale(.72)">${boxRound({ b: "#f47920", l: "#ff8a3d", r: "#fff6ec", deco: "heart" })}</g>
+      <g transform="translate(245 250) scale(.52)">${boxSquare({ b: "#ffc933", l: "#ffd766", r: "#f47920", deco: "star" })}</g>
       ${sparkles(seed, 9, W, H)}
     </svg>`;
   };
@@ -214,8 +214,8 @@
   /* aperçu du configurateur */
   F.art.builder = function (s) {
     const W = 460, H = 400;
-    const wrap = s.wrap || { box: "#f4d6d1", lid: "#f8e3df" };
-    const r = s.ribbon || "#c9a25a";
+    const wrap = s.wrap || { box: "#ffe3cc", lid: "#fff0e3" };
+    const r = s.ribbon || "#ffc933";
     const sc = s.scale || 1;
     const items = s.items || [];
     const cx = W / 2, bw = 250 * sc, bh = 130 * sc, bx = cx - bw / 2, by = 330 - bh;
@@ -238,21 +238,21 @@
       <rect width="${W}" height="${H}" fill="transparent"/>
       <circle cx="${cx}" cy="180" r="160" fill="#fff" opacity=".45"/>
       ${sparkles("builder" + items.length, 6, W, H * 0.9)}
-      <ellipse cx="${cx}" cy="${336}" rx="${bw * 0.62}" ry="12" fill="#3b302b" opacity=".1"/>
+      <ellipse cx="${cx}" cy="${336}" rx="${bw * 0.62}" ry="12" fill="#2f2544" opacity=".1"/>
       <path d="M${bx + bw - 30} ${by + 4} L${bx + bw + 30} ${by - 90 * sc} L${bx + bw + 62} ${by - 70 * sc} L${bx + bw + 20} ${by + 14}Z" fill="${wrap.lid}"/>
       <rect x="${bx}" y="${by - 12}" width="${bw}" height="16" fill="${shade(wrap.box, -26)}"/>
-      ${[0, 1, 2, 3, 4, 5].map(i => `<path d="M${bx + i * bw / 6 - 10} ${by} L${bx + i * bw / 6 + 20} ${by - 30 - (i % 3) * 8} L${bx + i * bw / 6 + 50} ${by}Z" fill="${i % 2 ? "#fbeeea" : "#fff"}"/>`).join("")}
+      ${[0, 1, 2, 3, 4, 5].map(i => `<path d="M${bx + i * bw / 6 - 10} ${by} L${bx + i * bw / 6 + 20} ${by - 30 - (i % 3) * 8} L${bx + i * bw / 6 + 50} ${by}Z" fill="${i % 2 ? "#eaf7ef" : "#fff"}"/>`).join("")}
       ${slots.join("")}
       <rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="3" fill="${wrap.box}"/>
       <rect x="${bx + bw * 0.68}" y="${by}" width="${bw * 0.32}" height="${bh}" fill="#000" opacity=".045"/>
       <rect x="${bx}" y="${by}" width="${bw}" height="7" fill="#fff" opacity=".35"/>
       <rect x="${bx}" y="${by + bh * 0.42}" width="${bw}" height="${16 * sc}" fill="${r}"/>
       ${bow(cx, by + bh * 0.42 + 8 * sc, r, 0.62 * sc)}
-      ${hasFlower ? `<g transform="translate(${cx - 34 * sc} ${by + bh * 0.42 - 6})">${[0, 1, 2].map(i => `<circle cx="${i * 9}" cy="${-i * 7}" r="6" fill="${["#e6cf98", "#e8b9b3", "#f3ead9"][i]}"/><path d="M${i * 9} ${-i * 7} l-14 16" stroke="#9aa77f" stroke-width="1.5"/>`).join("")}</g>` : ""}
-      ${hasSeal ? `<circle cx="${cx + bw * 0.3}" cy="${by + bh * 0.72}" r="${13 * sc}" fill="#c29a52"/><circle cx="${cx + bw * 0.3}" cy="${by + bh * 0.72}" r="${9 * sc}" fill="none" stroke="#e6cf98" stroke-width="1.5"/><text x="${cx + bw * 0.3}" y="${by + bh * 0.72 + 5}" text-anchor="middle" font-family="Mansalva,cursive" font-size="${14 * sc}" fill="#fff8e8">F</text>` : ""}
+      ${hasFlower ? `<g transform="translate(${cx - 34 * sc} ${by + bh * 0.42 - 6})">${[0, 1, 2].map(i => `<circle cx="${i * 9}" cy="${-i * 7}" r="6" fill="${["#ffd766", "#ffc933", "#f3ead9"][i]}"/><path d="M${i * 9} ${-i * 7} l-14 16" stroke="#9aa77f" stroke-width="1.5"/>`).join("")}</g>` : ""}
+      ${hasSeal ? `<circle cx="${cx + bw * 0.3}" cy="${by + bh * 0.72}" r="${13 * sc}" fill="#f2a900"/><circle cx="${cx + bw * 0.3}" cy="${by + bh * 0.72}" r="${9 * sc}" fill="none" stroke="#ffd766" stroke-width="1.5"/><text x="${cx + bw * 0.3}" y="${by + bh * 0.72 + 5}" text-anchor="middle" font-family="Mansalva,cursive" font-size="${14 * sc}" fill="#fff8e8">F</text>` : ""}
       ${s.card && s.card !== "none" ? `<g transform="rotate(-7 ${bx - 10} ${by + bh - 40})">
-        <rect x="${bx - 44}" y="${by + bh - 98}" width="96" height="72" rx="4" fill="${s.card === "doree" ? "#fbf3e1" : "#fffaf2"}" stroke="${s.card === "doree" ? "#c29a52" : "#eadfd4"}" stroke-width="${s.card === "doree" ? 2 : 1}"/>
-        ${cardLines.length ? cardLines.map((ln, i) => `<text x="${bx + 4}" y="${by + bh - 74 + i * 17}" text-anchor="middle" font-family="Mansalva,cursive" font-size="13" fill="#3e9b78">${esc(ln)}</text>`).join("") : `<text x="${bx + 4}" y="${by + bh - 56}" text-anchor="middle" font-family="Mansalva,cursive" font-size="15" fill="#c98f8a">♡</text>`}
+        <rect x="${bx - 44}" y="${by + bh - 98}" width="96" height="72" rx="4" fill="${s.card === "doree" ? "#fbf3e1" : "#fffaf2"}" stroke="${s.card === "doree" ? "#f2a900" : "#ece3d3"}" stroke-width="${s.card === "doree" ? 2 : 1}"/>
+        ${cardLines.length ? cardLines.map((ln, i) => `<text x="${bx + 4}" y="${by + bh - 74 + i * 17}" text-anchor="middle" font-family="Mansalva,cursive" font-size="13" fill="#3e9b78">${esc(ln)}</text>`).join("") : `<text x="${bx + 4}" y="${by + bh - 56}" text-anchor="middle" font-family="Mansalva,cursive" font-size="15" fill="#f47920">♡</text>`}
       </g>` : ""}
     </svg>`;
   };

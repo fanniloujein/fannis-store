@@ -42,12 +42,12 @@ FANNI.recipients = [
 ];
 
 FANNI.ribbons = [
-  { id: "poudre", fr: "Rose poudré", ar: "وردي فاتح", color: "#e8b9b3" },
-  { id: "or", fr: "Or", ar: "ذهبي", color: "#c9a25a" },
-  { id: "ivoire", fr: "Ivoire", ar: "عاجي", color: "#f3ead9" },
-  { id: "sauge", fr: "Vert sauge", ar: "أخضر", color: "#3e9b78" },
-  { id: "bordeaux", fr: "Bordeaux", ar: "خمري", color: "#8e3b46" },
-  { id: "nude", fr: "Nude", ar: "بيج", color: "#d8c0a6" }
+  { id: "orange", fr: "Orange vif", ar: "برتقالي", color: "#f47920" },
+  { id: "soleil", fr: "Jaune soleil", ar: "أصفر مشمس", color: "#ffc933" },
+  { id: "vert", fr: "Vert Fanni", ar: "أخضر", color: "#3e9b78" },
+  { id: "menthe", fr: "Vert clair", ar: "أخضر فاتح", color: "#62b88b" },
+  { id: "prune", fr: "Prune", ar: "برقوقي", color: "#2f2544" },
+  { id: "creme", fr: "Crème", ar: "كريمي", color: "#fff6ec" }
 ];
 
 FANNI.cardStyles = [
@@ -69,7 +69,7 @@ FANNI.products = [
       ar: "علبة رقيقة كأول باقة ورد. ورود أبدية بلون وردي ناعم، شمعة بعبير الفاوانيا والمسك الأبيض، وحلويات مختارة بعناية، ملفوفة في ورق حريري. لتقولي «أفكر فيك» بكل رقة."
     },
     includes: { fr: ["Roses éternelles en écrin", "Bougie parfumée pivoine & musc (180 g)", "Chocolats artisanaux", "Carte message personnalisée"], ar: ["ورود أبدية في علبة", "شمعة معطرة بالفاوانيا والمسك", "شوكولاتة حرفية", "بطاقة رسالة مخصصة"] },
-    art: { v: "box", b: "#f4d6d1", l: "#f8e3df", r: "#c9a25a", bg: "#fbeeea", deco: "rose" }
+    art: { v: "box", b: "#ff8a3d", l: "#ffa464", r: "#ffc933", bg: "#fff1dc", deco: "rose" }
   },
   {
     id: "box-mon-amour", occasion: ["saint-valentin"], recipient: ["elle", "couple"],
@@ -81,7 +81,7 @@ FANNI.products = [
       ar: "لأن قصتكما تستحق أن تُروى. إطار خشبي محفور بأسمائكما وتاريخكما، صورة مطبوعة على ورق فني، عطر منزلي بنفحات الورد والفانيليا، وشوكولاتة على شكل قلب."
     },
     includes: { fr: ["Cadre en bois gravé (prénoms + date)", "Photo imprimée sur papier d'art", "Parfum d'ambiance rose & vanille", "Chocolats cœur"], ar: ["إطار خشبي محفور", "صورة مطبوعة على ورق فني", "عطر منزلي بالورد والفانيليا", "شوكولاتة على شكل قلب"] },
-    art: { v: "round", b: "#e7b3ae", l: "#f0c8c3", r: "#8e3b46", bg: "#f8e4e1", deco: "heart" }
+    art: { v: "round", b: "#f47920", l: "#ff8a3d", r: "#2f2544", bg: "#ffe3cc", deco: "heart" }
   },
   {
     id: "coffret-oui-pour-la-vie", occasion: ["mariage"], recipient: ["couple"],
@@ -93,7 +93,7 @@ FANNI.products = [
       ar: "صندوق عاجي وذهبي للاحتفال بأجمل «نعم». كأسان محفوران بأسماء العروسين، شمعة بعبير الزهور البيضاء، دفتر ذكريات مغلف بالكتان، وملبّس رقيق."
     },
     includes: { fr: ["2 flûtes gravées aux prénoms", "Bougie fleurs blanches", "Carnet de souvenirs en lin", "Dragées amandes"], ar: ["كأسان محفوران بالأسماء", "شمعة الزهور البيضاء", "دفتر ذكريات من الكتان", "ملبّس باللوز"] },
-    art: { v: "box", b: "#f5eee2", l: "#fbf6ec", r: "#c9a25a", bg: "#f6f0e6", deco: "rings" }
+    art: { v: "box", b: "#fff6ec", l: "#fffaf3", r: "#ffc933", bg: "#fdf3dc", deco: "rings" }
   },
   {
     id: "box-petit-tresor", occasion: ["naissance"], recipient: ["enfant"],
@@ -105,7 +105,7 @@ FANNI.products = [
       ar: "لاستقبال قلب صغير. دمية ناعمة، قماط قطني مطرّز باسمه، دفتر لتدوين لحظاته الأولى ومصباح ليلي على شكل نجمة. علبة ناعمة كتهويدة."
     },
     includes: { fr: ["Doudou lapin en coton bio", "Lange brodé au prénom", "Carnet « Mes premières fois »", "Veilleuse étoile"], ar: ["دمية أرنب من القطن العضوي", "قماط مطرّز بالاسم", "دفتر «أولى لحظاتي»", "مصباح ليلي نجمة"] },
-    art: { v: "open", b: "#dcefe5", l: "#e9f6ef", r: "#f3ead9", bg: "#eef8f2", deco: "star" }
+    art: { v: "open", b: "#d6f0e1", l: "#e6f6ec", r: "#ffc933", bg: "#eaf7ef", deco: "star" }
   },
   {
     id: "box-maman-cherie", occasion: ["fete-parents"], recipient: ["elle"],
@@ -117,7 +117,7 @@ FANNI.products = [
       ar: "لمن عرفت دائماً كيف تجد الكلمات. كوب سيراميك محفور برسالة، شاي بتلات الورد، كريم يدين بزبدة الشيا وباقة زهور مجففة. لحظة دفء لها وحدها."
     },
     includes: { fr: ["Tasse céramique gravée", "Thé aux pétales de rose", "Crème mains karité", "Bouquet de fleurs séchées"], ar: ["كوب سيراميك محفور", "شاي بتلات الورد", "كريم يدين بالشيا", "باقة زهور مجففة"] },
-    art: { v: "box", b: "#ecdccd", l: "#f3e7da", r: "#e8b9b3", bg: "#f7eee6", deco: "flower" }
+    art: { v: "box", b: "#ffc933", l: "#ffd766", r: "#3e9b78", bg: "#fff4d1", deco: "flower" }
   },
   {
     id: "box-gentleman", occasion: ["anniversaire", "fete-parents"], recipient: ["lui"],
@@ -129,7 +129,7 @@ FANNI.products = [
       ar: "أنيقة ودافئة مثله. محفظة جلدية محفورة بالأحرف الأولى من اسمه، شمعة بعبير الأرز، قهوة مختصة ودفتر كرافت. لأب أو أخ أو زوج أو صديق عزيز."
     },
     includes: { fr: ["Portefeuille cuir gravé aux initiales", "Bougie cèdre & tabac blond", "Café de spécialité 250 g", "Carnet kraft"], ar: ["محفظة جلدية محفورة", "شمعة الأرز", "قهوة مختصة 250 غ", "دفتر كرافت"] },
-    art: { v: "box", b: "#c9a37c", l: "#d6b48f", r: "#3b302b", bg: "#efe2d2", deco: "star" }
+    art: { v: "box", b: "#3e9b78", l: "#4da37d", r: "#ffc933", bg: "#e3f3ea", deco: "star" }
   },
   {
     id: "box-merci-du-fond-du-coeur", occasion: ["remerciements"], recipient: ["elle", "lui"],
@@ -141,7 +141,7 @@ FANNI.products = [
       ar: "بعض كلمات الشكر تستحق أكثر من مجرد كلمة. شمعة صغيرة معطرة، بسكويت بالزبدة، صابون حرفي وبطاقة «شكراً» بخط اليد. هدية مثالية لمعلمة أو زميلة أو صديقة."
     },
     includes: { fr: ["Mini bougie parfumée", "Biscuits fins au beurre", "Savon artisanal", "Carte « Merci » calligraphiée"], ar: ["شمعة صغيرة معطرة", "بسكويت بالزبدة", "صابون حرفي", "بطاقة شكر بخط اليد"] },
-    art: { v: "box", b: "#fbf6ec", l: "#ffffff", r: "#3e9b78", bg: "#eef8f2", deco: "thanks" }
+    art: { v: "box", b: "#fff6ec", l: "#ffffff", r: "#3e9b78", bg: "#eaf7ef", deco: "thanks" }
   },
   {
     id: "box-douce-nuit", occasion: ["anniversaire", "remerciements"], recipient: ["elle"],
@@ -153,7 +153,7 @@ FANNI.products = [
       ar: "دعوة للتمهل. قناع نوم من الساتان، شاي البابونج المهدئ، رذاذ وسادة باللافندر وشمعة بعبير القطن. لتهدي أثمن شيء: وقتاً للنفس."
     },
     includes: { fr: ["Masque de nuit en satin", "Tisane camomille", "Brume d'oreiller lavande", "Bougie coton"], ar: ["قناع نوم ساتان", "شاي البابونج", "رذاذ وسادة باللافندر", "شمعة القطن"] },
-    art: { v: "round", b: "#e9dfee", l: "#f1eaf4", r: "#c9a25a", bg: "#f5f0f6", deco: "star" }
+    art: { v: "round", b: "#2f2544", l: "#4a3f5c", r: "#ffc933", bg: "#efeaf4", deco: "star" }
   },
   {
     id: "box-premier-anniversaire", occasion: ["anniversaire", "naissance"], recipient: ["enfant"],
@@ -165,7 +165,7 @@ FANNI.products = [
       ar: "ليطفئ شمعته الأولى والنجوم تملأ عينيه. كتاب مصور، دمية ناعمة، تاج من اللباد مطرّز باسمه وكيس قصاصات ذهبية."
     },
     includes: { fr: ["Livre illustré", "Peluche douce", "Couronne brodée au prénom", "Confettis dorés"], ar: ["كتاب مصور", "دمية ناعمة", "تاج مطرّز بالاسم", "قصاصات ذهبية"] },
-    art: { v: "open", b: "#f7e3c6", l: "#fbeedb", r: "#e8b9b3", bg: "#fbf3e7", deco: "cake" }
+    art: { v: "open", b: "#fcd50a", l: "#ffe14d", r: "#f47920", bg: "#fff6d6", deco: "cake" }
   },
   {
     id: "box-duo-complice", occasion: ["saint-valentin", "mariage"], recipient: ["couple"],
@@ -177,7 +177,7 @@ FANNI.products = [
       ar: "للعشاق الذين يضحكون معاً. كوبان محفوران «هو» و«هي»، لعبة أسئلة لاكتشاف بعضكما من جديد، بطانية ناعمة وحلويات للمشاركة."
     },
     includes: { fr: ["2 tasses gravées « Lui & Elle »", "Jeu de questions pour couple", "Plaid doux", "Douceurs à partager"], ar: ["كوبان محفوران", "لعبة أسئلة للثنائي", "بطانية ناعمة", "حلويات للمشاركة"] },
-    art: { v: "box", b: "#e7b3ae", l: "#efc5c0", r: "#fbf6ec", bg: "#f8e4e1", deco: "heart" }
+    art: { v: "box", b: "#62b88b", l: "#7cc9a0", r: "#fff6ec", bg: "#e3f3ea", deco: "heart" }
   },
   {
     id: "box-papa-heros", occasion: ["fete-parents"], recipient: ["lui"],
@@ -189,7 +189,7 @@ FANNI.products = [
       ar: "لبطل حياتنا الأول. ميدالية جلدية محفورة بكلمة صغيرة، كوب «أفضل أب في العالم»، شوكولاتة داكنة وبطاقة يرسم عليها الأطفال."
     },
     includes: { fr: ["Porte-clés cuir gravé", "Mug « Meilleur papa »", "Chocolats noirs 70 %", "Carte à dessiner"], ar: ["ميدالية جلدية محفورة", "كوب «أفضل أب»", "شوكولاتة داكنة", "بطاقة للرسم"] },
-    art: { v: "round", b: "#d8c0a6", l: "#e3d0ba", r: "#3e9b78", bg: "#f2e8dc", deco: "star" }
+    art: { v: "round", b: "#4da37d", l: "#62b88b", r: "#f47920", bg: "#eaf7ef", deco: "star" }
   },
   {
     id: "box-bouquet-eternel", occasion: ["anniversaire", "saint-valentin", "fete-parents"], recipient: ["elle"],
@@ -201,7 +201,7 @@ FANNI.products = [
       ar: "ورود لا تذبل أبداً، كالمشاعر الصادقة. علبة أسطوانية مخملية مليئة بالورود الأبدية، مع شريط حريري ورسالة صغيرة. تحتفظ بجمالها لسنوات."
     },
     includes: { fr: ["Boîte chapeau en velours", "Roses éternelles (durée 2 à 3 ans)", "Ruban de soie", "Petit mot personnalisé"], ar: ["علبة مخملية أسطوانية", "ورود أبدية تدوم سنوات", "شريط حريري", "رسالة مخصصة"] },
-    art: { v: "round", b: "#f4d6d1", l: "#f8e3df", r: "#c9a25a", bg: "#fbeeea", deco: "rose" }
+    art: { v: "round", b: "#ff8a3d", l: "#ffa464", r: "#fff6ec", bg: "#fff1dc", deco: "rose" }
   },
   {
     id: "box-cocooning", occasion: ["remerciements", "anniversaire"], recipient: ["elle", "lui"],
@@ -213,7 +213,7 @@ FANNI.products = [
       ar: "عناق يمكن تغليفه. بطانية محبوكة ناعمة، جوارب دافئة، شوكولاتة ساخنة، مارشميلو وشمعة فانيليا. لأمسيات الشتاء أو لتقول «اعتنِ بنفسك»."
     },
     includes: { fr: ["Plaid en maille douce", "Chaussettes douillettes", "Chocolat chaud & guimauves", "Bougie vanille"], ar: ["بطانية محبوكة", "جوارب دافئة", "شوكولاتة ساخنة ومارشميلو", "شمعة فانيليا"] },
-    art: { v: "open", b: "#ecdccd", l: "#f3e7da", r: "#b97c77", bg: "#f7eee6", deco: "heart" }
+    art: { v: "open", b: "#ffd766", l: "#ffe699", r: "#f47920", bg: "#fff6dc", deco: "heart" }
   },
   {
     id: "box-bebe-arrive", occasion: ["naissance"], recipient: ["couple", "enfant"],
@@ -225,7 +225,7 @@ FANNI.products = [
       ar: "للوالدين اللذين يعدّان الأيام. ألبوم حمل، لباس مطرّز «قريباً هنا»، شاي أعشاب عضوي، زيت تدليك لطيف وحذاء صوفي صغير."
     },
     includes: { fr: ["Album de grossesse", "Body brodé « Bientôt là »", "Tisane bio", "Huile de massage", "Chaussons en laine"], ar: ["ألبوم الحمل", "لباس مطرّز", "شاي أعشاب عضوي", "زيت تدليك", "حذاء صوفي"] },
-    art: { v: "box", b: "#dcefe5", l: "#e9f6ef", r: "#e8b9b3", bg: "#eef8f2", deco: "baby" }
+    art: { v: "box", b: "#d6f0e1", l: "#e6f6ec", r: "#f47920", bg: "#eaf7ef", deco: "baby" }
   },
   {
     id: "box-signature-sur-mesure", occasion: ["sur-mesure"], recipient: ["elle", "lui", "enfant", "couple"],
@@ -237,7 +237,7 @@ FANNI.products = [
       ar: "العلبة التي تشبهكم. اختاروا الحجم والقطع والرسالة والتغليف: نجمع كل تفصيل يدوياً وبحب."
     },
     includes: { fr: ["Box au choix (3 tailles)", "Articles à sélectionner", "Message personnalisé", "Emballage au choix"], ar: ["علبة حسب الاختيار", "قطع مختارة", "رسالة مخصصة", "تغليف حسب الاختيار"] },
-    art: { v: "open", b: "#f4d6d1", l: "#f8e3df", r: "#c9a25a", bg: "#fbeeea", deco: "sparkle" }
+    art: { v: "open", b: "#f47920", l: "#ff8a3d", r: "#ffc933", bg: "#fff1dc", deco: "sparkle" }
   },
   {
     id: "mini-box-attention", occasion: ["remerciements", "anniversaire"], recipient: ["elle", "lui", "enfant"],
@@ -249,7 +249,7 @@ FANNI.products = [
       ar: "أصغر اللفتات تترك أحياناً أجمل الذكريات. شمعة صغيرة، لوح شوكولاتة حرفية ورسالة لطيفة في علبة كرافت مربوطة بشريط."
     },
     includes: { fr: ["Mini bougie", "Chocolat artisanal", "Mot doux", "Boîte kraft & ruban"], ar: ["شمعة صغيرة", "شوكولاتة حرفية", "رسالة لطيفة", "علبة كرافت وشريط"] },
-    art: { v: "box", b: "#c9a37c", l: "#d6b48f", r: "#e8b9b3", bg: "#efe2d2", deco: "heart" }
+    art: { v: "box", b: "#c9a37c", l: "#d6b48f", r: "#3e9b78", bg: "#fff3d1", deco: "heart" }
   }
 ];
 
@@ -269,33 +269,34 @@ FANNI.builder = {
   ],
   items: [
     { id: "chocolats", cat: "douceurs", emoji: "🍫", fr: "Chocolats artisanaux", ar: "شوكولاتة حرفية", price: 18, color: "#6b4436" },
-    { id: "macarons", cat: "douceurs", emoji: "🧁", fr: "Macarons (x6)", ar: "ماكرون (6)", price: 22, color: "#f0bfc0" },
+    { id: "macarons", cat: "douceurs", emoji: "🧁", fr: "Macarons (x6)", ar: "ماكرون (6)", price: 22, color: "#ffd766" },
     { id: "the", cat: "douceurs", emoji: "🍵", fr: "Thé aux pétales de rose", ar: "شاي بتلات الورد", price: 14, color: "#b8cfa3" },
     { id: "cafe", cat: "douceurs", emoji: "☕", fr: "Café de spécialité", ar: "قهوة مختصة", price: 20, color: "#8a5a3c" },
     { id: "miel", cat: "douceurs", emoji: "🍯", fr: "Miel & dragées", ar: "عسل وملبّس", price: 16, color: "#e0a93b" },
     { id: "bougie", cat: "bien-etre", emoji: "🕯️", fr: "Bougie parfumée", ar: "شمعة معطرة", price: 24, color: "#f3ead9" },
     { id: "savon", cat: "bien-etre", emoji: "🧼", fr: "Savon artisanal", ar: "صابون حرفي", price: 10, color: "#dcefe5" },
     { id: "creme", cat: "bien-etre", emoji: "🧴", fr: "Crème mains karité", ar: "كريم يدين بالشيا", price: 16, color: "#fbf6ec" },
-    { id: "masque", cat: "bien-etre", emoji: "😴", fr: "Masque de nuit satin", ar: "قناع نوم ساتان", price: 19, color: "#e8b9b3" },
-    { id: "chaussettes", cat: "bien-etre", emoji: "🧦", fr: "Chaussettes douillettes", ar: "جوارب دافئة", price: 12, color: "#d8c0a6" },
-    { id: "roses", cat: "deco", emoji: "🌹", fr: "Roses éternelles", ar: "ورود أبدية", price: 35, color: "#d98a8a" },
-    { id: "fleurs", cat: "deco", emoji: "💐", fr: "Bouquet de fleurs séchées", ar: "باقة زهور مجففة", price: 18, color: "#e6cf98" },
+    { id: "masque", cat: "bien-etre", emoji: "😴", fr: "Masque de nuit satin", ar: "قناع نوم ساتان", price: 19, color: "#ffc933" },
+    { id: "chaussettes", cat: "bien-etre", emoji: "🧦", fr: "Chaussettes douillettes", ar: "جوارب دافئة", price: 12, color: "#ead9b0" },
+    { id: "roses", cat: "deco", emoji: "🌹", fr: "Roses éternelles", ar: "ورود أبدية", price: 35, color: "#f47920" },
+    { id: "fleurs", cat: "deco", emoji: "💐", fr: "Bouquet de fleurs séchées", ar: "باقة زهور مجففة", price: 18, color: "#ffd766" },
     { id: "cadre", cat: "deco", emoji: "🖼️", fr: "Cadre photo", ar: "إطار صورة", price: 22, color: "#c9a37c" },
-    { id: "carnet", cat: "deco", emoji: "📔", fr: "Carnet en lin", ar: "دفتر من الكتان", price: 15, color: "#ecdccd" },
-    { id: "bijou", cat: "deco", emoji: "💍", fr: "Bijou délicat plaqué or", ar: "قطعة مجوهرات مطلية بالذهب", price: 39, color: "#c9a25a" },
+    { id: "carnet", cat: "deco", emoji: "📔", fr: "Carnet en lin", ar: "دفتر من الكتان", price: 15, color: "#fff4d9" },
+    { id: "bijou", cat: "deco", emoji: "💍", fr: "Bijou délicat plaqué or", ar: "قطعة مجوهرات مطلية بالذهب", price: 39, color: "#ffc933" },
     { id: "tasse-gravee", cat: "perso", emoji: "☕", fr: "Tasse gravée au prénom", ar: "كوب محفور بالاسم", price: 25, color: "#ffffff", personal: true },
     { id: "porte-cles", cat: "perso", emoji: "🔑", fr: "Porte-clés cuir gravé", ar: "ميدالية جلدية محفورة", price: 18, color: "#8a5a3c", personal: true },
     { id: "photo-print", cat: "perso", emoji: "📷", fr: "Photo imprimée sur papier d'art", ar: "صورة مطبوعة على ورق فني", price: 12, color: "#f3ead9", personal: true },
-    { id: "trousse", cat: "perso", emoji: "👝", fr: "Trousse brodée aux initiales", ar: "حقيبة مطرّزة بالأحرف", price: 28, color: "#f4d6d1", personal: true },
+    { id: "trousse", cat: "perso", emoji: "👝", fr: "Trousse brodée aux initiales", ar: "حقيبة مطرّزة بالأحرف", price: 28, color: "#ffe3cc", personal: true },
     { id: "doudou", cat: "bebe", emoji: "🧸", fr: "Doudou tout doux", ar: "دمية ناعمة", price: 26, color: "#e3d0ba" },
     { id: "lange", cat: "bebe", emoji: "👶", fr: "Lange brodé au prénom", ar: "قماط مطرّز بالاسم", price: 29, color: "#dcefe5", personal: true },
     { id: "livre", cat: "bebe", emoji: "📚", fr: "Livre illustré", ar: "كتاب مصور", price: 17, color: "#f7e3c6" }
   ],
   wrappings: [
     { id: "kraft", fr: "Papier kraft & ficelle", ar: "ورق كرافت وخيط", price: 0, box: "#c9a37c", lid: "#d6b48f", descFr: "Naturel et bohème", descAr: "طبيعي وبسيط" },
-    { id: "soie", fr: "Papier de soie rose poudré", ar: "ورق حريري وردي", price: 5, box: "#f4d6d1", lid: "#f8e3df", descFr: "Tendre et romantique", descAr: "رقيق ورومانسي" },
-    { id: "ivoire-or", fr: "Écrin ivoire & dorure", ar: "علبة عاجية مذهّبة", price: 10, box: "#f5eee2", lid: "#fbf6ec", descFr: "Chic et intemporel", descAr: "أنيق وخالد" },
-    { id: "menthe", fr: "Écrin vert menthe", ar: "علبة بلون النعناع", price: 5, box: "#cfe9dc", lid: "#dcf1e5", descFr: "Frais, aux couleurs de la maison", descAr: "منعش بألوان المتجر" }
+    { id: "soleil", fr: "Écrin jaune soleil", ar: "علبة صفراء مشمسة", price: 5, box: "#ffc933", lid: "#ffd766", descFr: "Lumineux et joyeux", descAr: "مشرقة ومبهجة" },
+    { id: "orange", fr: "Écrin orange vif", ar: "علبة برتقالية", price: 5, box: "#ff8a3d", lid: "#ffa464", descFr: "Audacieux et chaleureux", descAr: "جريئة ودافئة" },
+    { id: "menthe", fr: "Écrin vert Fanni", ar: "علبة خضراء", price: 5, box: "#62b88b", lid: "#7cc9a0", descFr: "Aux couleurs de la maison", descAr: "بألوان المتجر" },
+    { id: "creme", fr: "Écrin crème & dorure", ar: "علبة كريمية مذهّبة", price: 10, box: "#fff6ec", lid: "#fffaf3", descFr: "Chic et intemporel", descAr: "أنيقة وخالدة" }
   ],
   extras: [
     { id: "fleurs-sechees", fr: "Brin de fleurs séchées sur le nœud", ar: "زهور مجففة على الشريط", price: 6 },
