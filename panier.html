@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mon panier · Fanni's Store</title>
+  <meta name="description" content="Votre panier Fanni's Store : finalisez votre commande de box cadeaux personnalisées. Paiement à la livraison ou en ligne.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#fbf7f2">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mansalva&family=Poppins:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/i18n.js"></script>
+  <script defer src="assets/js/art.js"></script>
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/cart.js"></script>
+</head>
+<body data-page="cart" data-title-key="cart_title">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero" style="padding-bottom:30px">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="index.html" data-i18n="nav_home">Accueil</a><span>✦</span><span data-i18n="cart_title">Mon panier</span></nav>
+        <h1 data-i18n="cart_title">Mon panier</h1>
+      </div>
+    </section>
+
+    <section class="section-sm" style="padding-top:10px">
+      <div class="container" id="cart-root"></div>
+    </section>
+  </main>
+
+  <!-- Confirmation de commande -->
+  <div class="modal" id="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-title">
+    <div class="modal-card" data-sparkles="6" style="position:relative;overflow:hidden">
+      <div class="big-emoji">🎁</div>
+      <h2 id="order-title" data-i18n="order_ok_t">Merci, votre commande est bien reçue !</h2>
+      <span class="order-no" id="order-no"></span>
+      <p id="order-text"></p>
+      <div class="modal-actions">
+        <a class="btn btn-brand" id="order-wa" target="_blank" rel="noopener"></a>
+        <a class="btn btn-outline" href="index.html" data-i18n="back_home">Retour à l'accueil</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "Fanni's Store",
+  "short_name": "Fanni's Store",
+  "description": "Cadeaux personnalisés & box cadeaux faites main",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fbf7f2",
+  "theme_color": "#3e9b78",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

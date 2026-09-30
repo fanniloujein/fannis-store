@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /panier.html
+
+Sitemap: https://www.fannis-store.com/sitemap.xml

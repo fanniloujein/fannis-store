@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact · Fanni's Store</title>
+  <meta name="description" content="Contactez Fanni's Store pour commander ou imaginer un cadeau personnalisé : formulaire, WhatsApp, Instagram, Facebook et TikTok.">
+  <link rel="canonical" href="https://www.fannis-store.com/contact.html">
+  <meta name="theme-color" content="#fbf7f2">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact · Fanni's Store">
+  <meta property="og:image" content="https://www.fannis-store.com/assets/img/og-image.png">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mansalva&family=Poppins:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/i18n.js"></script>
+  <script defer src="assets/js/art.js"></script>
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/pages.js"></script>
+</head>
+<body data-page="contact" data-title-key="nav_contact">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero" data-sparkles="6">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="index.html" data-i18n="nav_home">Accueil</a><span>✦</span><span data-i18n="nav_contact">Contact</span></nav>
+        <h1 data-i18n="contact_t">Écrivons ensemble votre histoire</h1>
+        <p data-i18n="contact_lead">Une question, une idée, une commande spéciale ? Nous vous répondons avec plaisir, généralement en moins de 2 heures 🤍</p>
+      </div>
+    </section>
+
+    <section class="section-sm" style="padding-top:10px">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <div class="contact-cards" id="contact-cards"></div>
+          <div class="hours">
+            <p><b data-i18n="hours_t">Horaires de l'atelier</b><br><span data-i18n="hours_p">Du lundi au samedi : 9h – 19h<br>Dimanche : sur rendez-vous pour les commandes urgentes</span></p>
+            <p data-i18n="hours_note">💌 Les messages reçus le soir et le week-end sont traités en priorité le lendemain matin.</p>
+          </div>
+        </div>
+
+        <div class="form-card reveal" data-delay="1">
+          <h2 style="font-size:2rem" data-i18n="form_t">Envoyez-nous un petit mot</h2>
+          <form id="contact-form" novalidate>
+            <div class="field-grid">
+              <div class="field"><label for="ct-name"><span data-i18n="co_name">Nom complet</span> *</label><input class="input" id="ct-name" name="name" required autocomplete="name"></div>
+              <div class="field"><label for="ct-phone" data-i18n="ct_phone">Téléphone</label><input class="input" id="ct-phone" name="phone" type="tel" autocomplete="tel"></div>
+            </div>
+            <div class="field"><label for="ct-email">Email *</label><input class="input" id="ct-email" name="email" type="email" required autocomplete="email"></div>
+            <div class="field">
+              <label for="ct-subject" data-i18n="ct_subject">Sujet</label>
+              <select class="select" id="ct-subject" name="subject" style="border-radius:12px">
+                <option data-i18n="ct_s1">Question sur une box</option>
+                <option data-i18n="ct_s2">Box sur mesure / idée spéciale</option>
+                <option data-i18n="ct_s3">Suivi de commande</option>
+                <option data-i18n="ct_s4">Mariage, événement, entreprise</option>
+                <option data-i18n="ct_s5">Autre</option>
+              </select>
+            </div>
+            <div class="field"><label for="ct-msg"><span data-i18n="ct_msg">Votre message</span> *</label><textarea class="textarea" id="ct-msg" name="message" required placeholder="Racontez-nous : pour qui, pour quelle occasion, vos idées…" data-i18n-ph="ct_msg_ph"></textarea></div>
+            <div class="field">
+              <span class="label" data-i18n="ct_via">Je préfère être recontacté(e) par</span>
+              <div class="chips">
+                <label class="check" style="margin-inline-end:18px"><input type="radio" name="via" value="whatsapp" checked> WhatsApp</label>
+                <label class="check"><input type="radio" name="via" value="email"> Email</label>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit" data-burst data-i18n="ct_send">Envoyer mon message</button>
+            <p class="form-note text-center" data-i18n="ct_note">Vos informations restent entre nous et ne servent qu'à vous répondre 🤍</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

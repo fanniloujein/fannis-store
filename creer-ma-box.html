@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crée ta box sur mesure · Fanni's Store</title>
+  <meta name="description" content="Composez votre box cadeau sur mesure : choisissez la box, les articles un par un, le message et l'emballage. Aperçu et prix mis à jour en temps réel.">
+  <link rel="canonical" href="https://www.fannis-store.com/creer-ma-box.html">
+  <meta name="theme-color" content="#fbf7f2">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Crée ta box sur mesure ✨ Fanni's Store">
+  <meta property="og:description" content="Une box qui vous ressemble, composée article par article.">
+  <meta property="og:image" content="https://www.fannis-store.com/assets/img/og-image.png">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Mansalva&family=Poppins:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/i18n.js"></script>
+  <script defer src="assets/js/art.js"></script>
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/builder.js"></script>
+</head>
+<body data-page="builder" data-title-key="nav_builder">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="page-hero" data-sparkles="7">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="index.html" data-i18n="nav_home">Accueil</a><span>✦</span><span data-i18n="nav_builder">Crée ta box</span></nav>
+        <h1 data-i18n="b_title">Crée ta box sur mesure ✨</h1>
+        <p data-i18n="b_lead">Choisissez la box, glissez-y les articles un par un, écrivez votre message et choisissez l'emballage. Nous nous occupons du reste, à la main et avec amour.</p>
+      </div>
+    </section>
+
+    <section class="section-sm" style="padding-top:10px">
+      <div class="container builder">
+        <div>
+          <div class="builder-steps" role="tablist" aria-label="Étapes">
+            <button type="button" role="tab" data-step="0" class="is-active" data-i18n="b_s1">La box</button>
+            <button type="button" role="tab" data-step="1" data-i18n="b_s2">Les articles</button>
+            <button type="button" role="tab" data-step="2" data-i18n="b_s3">Le message</button>
+            <button type="button" role="tab" data-step="3" data-i18n="b_s4">L'emballage</button>
+          </div>
+
+          <!-- Étape 1 -->
+          <div class="builder-panel is-active" data-panel="0" role="tabpanel">
+            <h2 data-i18n="b_p1_t">Choisissez votre box</h2>
+            <p data-i18n="b_p1_p">Sa taille détermine le nombre d'articles que vous pourrez y glisser.</p>
+            <div class="box-choices" id="box-choices"></div>
+          </div>
+
+          <!-- Étape 2 -->
+          <div class="builder-panel" data-panel="1" role="tabpanel">
+            <h2 data-i18n="b_p2_t">Remplissez-la de petits bonheurs</h2>
+            <p data-i18n="b_p2_p">Ajoutez les articles un par un. Chaque choix apparaît aussitôt dans l'aperçu.</p>
+            <div class="capacity"><span id="cap-text"></span><div class="bar"><span id="cap-bar"></span></div></div>
+            <div class="chips" id="item-cats" style="margin-bottom:18px"></div>
+            <div class="items-grid" id="items-grid"></div>
+          </div>
+
+          <!-- Étape 3 -->
+          <div class="builder-panel" data-panel="2" role="tabpanel">
+            <h2 data-i18n="b_p3_t">Les mots qui comptent</h2>
+            <p data-i18n="b_p3_p">Votre message sera écrit à la main sur la carte de votre choix.</p>
+            <div class="field">
+              <span class="label" data-i18n="c_card">Carte message</span>
+              <div class="option-cards" id="card-choices"></div>
+            </div>
+            <div class="field-grid">
+              <div class="field">
+                <label for="b-to" data-i18n="b_to">Pour</label>
+                <input class="input" id="b-to" maxlength="30" placeholder="Ex. : Maman, Lina, Mon amour…" data-i18n-ph="b_to_ph">
+              </div>
+              <div class="field">
+                <label for="b-from" data-i18n="b_from">De la part de</label>
+                <input class="input" id="b-from" maxlength="30" placeholder="Ex. : Ta fille qui t'aime" data-i18n-ph="b_from_ph">
+              </div>
+            </div>
+            <div class="field">
+              <label for="b-msg" data-i18n="c_msg">Votre message</label>
+              <textarea class="textarea" id="b-msg" maxlength="250" placeholder="Écrivez ici ce que votre cœur a envie de dire…" data-i18n-ph="b_msg_ph"></textarea>
+              <div class="char-count"><span id="b-count">0</span>/250</div>
+            </div>
+            <div class="chips" id="msg-ideas" aria-label="Idées de messages"></div>
+          </div>
+
+          <!-- Étape 4 -->
+          <div class="builder-panel" data-panel="3" role="tabpanel">
+            <h2 data-i18n="b_p4_t">Le dernier nœud</h2>
+            <p data-i18n="b_p4_p">Choisissez l'emballage, la couleur du ruban et quelques finitions précieuses.</p>
+            <div class="field">
+              <span class="label" data-i18n="b_wrap">Emballage</span>
+              <div class="option-cards" id="wrap-choices"></div>
+            </div>
+            <div class="field">
+              <span class="label" id="b-ribbon-label"><span data-i18n="c_ribbon">Couleur du ruban</span> : <small id="b-ribbon-name"></small></span>
+              <div class="swatches" id="ribbon-choices" role="radiogroup" aria-labelledby="b-ribbon-label"></div>
+            </div>
+            <div class="field">
+              <span class="label" data-i18n="b_extras">Finitions</span>
+              <div id="extra-choices"></div>
+            </div>
+          </div>
+
+          <div class="builder-nav">
+            <button class="btn btn-outline" type="button" id="b-prev" data-i18n="b_prev">← Retour</button>
+            <button class="btn btn-primary" type="button" id="b-next" data-i18n="b_next">Continuer →</button>
+          </div>
+        </div>
+
+        <aside class="preview-card" aria-label="Aperçu de votre box">
+          <div class="preview-stage" id="preview-stage"></div>
+          <div class="preview-body">
+            <h3 data-i18n="b_your_box">Votre box</h3>
+            <ul class="summary-list" id="summary"></ul>
+            <div class="card-preview" id="card-preview" aria-live="polite"></div>
+            <div class="total-row"><span data-i18n="total">Total</span><b id="b-total">0</b></div>
+            <button class="btn btn-primary btn-block" type="button" id="b-add" data-burst>🎁 <span data-i18n="add_cart">Ajouter au panier</span></button>
+            <p class="form-note text-center" id="b-hint"></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>
