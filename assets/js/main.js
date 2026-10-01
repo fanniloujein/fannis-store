@@ -140,7 +140,7 @@
       <header class="site-header">
         <div class="container header-inner">
           <button class="icon-btn burger" aria-label="${F.t("menu_open", "Ouvrir le menu")}" aria-expanded="false" aria-controls="main-nav">${F.icons.menu}</button>
-          <a class="logo" href="index.html" aria-label="Fanni's Store — ${F.t("nav_home", "Accueil")}"><img src="assets/img/logo.svg" alt="Fanni's Store" width="190" height="46"></a>
+          <a class="logo" href="index.html" aria-label="Fanni's Store — ${F.t("nav_home", "Accueil")}"><img src="assets/img/logo-carre.svg" alt="Fanni's Store" width="60" height="60"></a>
           <nav class="main-nav" id="main-nav" aria-label="${F.t("nav_label", "Navigation principale")}">
             <button class="icon-btn nav-close" aria-label="${F.t("menu_close", "Fermer le menu")}">${F.icons.close}</button>
             <ul>${nav.map(([h, k, l]) => `<li><a href="${h}"${k === page ? ' aria-current="page"' : ""}>${l}</a></li>`).join("")}</ul>
@@ -185,7 +185,7 @@
       <footer class="site-footer">
         <div class="container footer-grid">
           <div class="footer-brand">
-            <img src="assets/img/logo-full.svg" alt="Fanni's Store — Personalized · Handcrafted" width="200" height="60" loading="lazy">
+            <img src="assets/img/logo-carre.svg" alt="Fanni's Store" width="120" height="120" loading="lazy">
             <p>${F.t("footer_about", "Des cadeaux personnalisés, préparés à la main, qui transforment vos émotions en souvenirs. Parce qu'un cadeau doit raconter une histoire 🤍")}</p>
             <div class="socials">${socials}</div>
           </div>
