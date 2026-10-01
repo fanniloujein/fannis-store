@@ -51,6 +51,9 @@
     const cur = F.lang === "ar" && C.currency === "DT" ? "د.ت" : C.currency;
     return `${s} ${cur}`;
   };
+  /* envoi discret au serveur (ignoré si le site est hébergé sans serveur) */
+  F.api = (url, data) => fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data), keepalive: true })
+    .then(r => r.ok ? r.json() : null).catch(() => null);
   F.wa = text => `https://wa.me/${C.whatsapp}${text ? "?text=" + encodeURIComponent(text) : ""}`;
   F.qs = (s, r = document) => r.querySelector(s);
   F.qsa = (s, r = document) => [...r.querySelectorAll(s)];
@@ -245,6 +248,7 @@
     try {
       const list = JSON.parse(localStorage.getItem("fanni_newsletter") || "[]");
       list.push({ email: input.value, date: new Date().toISOString() });
+      F.api("/api/newsletter", { email: input.value, source: document.body.dataset.page || "site" });
       localStorage.setItem("fanni_newsletter", JSON.stringify(list));
     } catch (err) {}
     input.value = "";

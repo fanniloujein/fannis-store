@@ -17,7 +17,7 @@ Entièrement en HTML / CSS / JavaScript, **sans framework ni étape de compilati
 | Panier et commande (paiement à la livraison ou en ligne) | `panier.html` |
 | Mentions légales, CGV, confidentialité | `mentions-legales.html` |
 
-## Voir le site en local
+## Voir le site en local (fichiers seuls)
 
 ```bash
 cd fannis-store
@@ -25,17 +25,54 @@ python3 -m http.server 8080
 # puis ouvrir http://localhost:8080
 ```
 
+## Espace administration (/admin)
+
+Tout se gère depuis **https://votre-site/admin** — aucune ligne de code à toucher :
+
+- **Produits** : ajouter, modifier, dupliquer, supprimer, réordonner (glisser-déposer),
+  photos (redimensionnées automatiquement), prix / prix barré, stock, badge, best-seller,
+  textes FR + AR, brouillon ou en ligne, aperçu en direct.
+- **Commandes** : chaque commande passée sur le site arrive ici (suivi : nouvelle → confirmée →
+  en préparation → expédiée → livrée), message WhatsApp prêt pour la cliente, note interne,
+  impression du bon, export CSV.
+- **Crée ta box** : tailles, articles, catégories, emballages, finitions et prix du configurateur.
+- **Avis clients**, **Messages** du formulaire de contact, **Newsletter** (export CSV).
+- **Paramètres** : WhatsApp, email, réseaux sociaux, frais et seuil de livraison, occasions, rubans…
+
+Au premier démarrage, la base est remplie automatiquement avec le catalogue de `assets/js/data.js`.
+
+## Voir le site + l'admin en local
+
+```bash
+npm install
+ADMIN_EMAIL=moi@exemple.com ADMIN_PASSWORD=MotDePasse npm start
+# site : http://localhost:3000   admin : http://localhost:3000/admin
+```
+
+Sans `DATABASE_URL`, les données sont enregistrées dans le dossier `data/` (pratique en local).
+
 ## Mettre en ligne sur Render
 
-Le fichier `render.yaml` contient toute la configuration.
+Le site est maintenant un **Web Service Node** (et non plus un « Static Site »).
 
-1. Sur https://dashboard.render.com : **New → Blueprint**, choisissez le dépôt `fannis-store`, puis **Apply**.
-2. Ou manuellement : **New → Static Site**, dépôt `fannis-store`, branche `main`,
-   *Build Command* : `echo "ok"`, *Publish Directory* : `.`
-3. Aucune variable d'environnement n'est nécessaire.
-4. Nom de domaine : *Settings → Custom Domains* du service.
+1. **Base de données** (gratuite et permanente) : créez un projet sur https://neon.tech
+   (ou https://supabase.com) et copiez l'URL de connexion `postgresql://…`.
+   ⚠️ La base PostgreSQL gratuite de Render est supprimée au bout de 30 jours.
+2. Sur https://dashboard.render.com : **New → Blueprint**, dépôt `fannis-store`, puis **Apply**
+   (ou **New → Web Service** : *Build Command* `npm install`, *Start Command* `npm start`).
+3. Variables d'environnement (*Environment*) :
+   | Clé | Valeur |
+   |---|---|
+   | `DATABASE_URL` | l'URL copiée à l'étape 1 |
+   | `ADMIN_EMAIL` | votre email de connexion |
+   | `ADMIN_PASSWORD` | un mot de passe solide (12 caractères ou plus) |
+   | `SESSION_SECRET` | une longue chaîne aléatoire (générée automatiquement par le Blueprint) |
+   | `PUBLIC_URL` | l'adresse du site, ex. `https://www.fannis-store.com` |
+4. Supprimez l'ancien service « Static Site » et reportez le nom de domaine sur le nouveau
+   (*Settings → Custom Domains*).
 
 Chaque envoi (push) sur `main` redéploie automatiquement le site.
+Le plan gratuit met le service en veille après 15 min sans visite (1er chargement plus lent).
 
 ## Personnaliser
 

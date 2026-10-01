@@ -33,6 +33,7 @@
         if (!ok && !first) first = el;
       });
       if (first) { first.focus(); F.toast(F.t("ct_missing", "Merci de compléter les champs marqués d'une étoile 🤍")); return; }
+      F.api("/api/messages", { name: form.name.value, email: form.email.value, phone: form.phone.value, subject: form.subject.value, message: form.message.value, via: form.via.value });
       const body = `${form.subject.value}\n\n${form.message.value}\n\n— ${form.name.value}${form.phone.value ? " · " + form.phone.value : ""} · ${form.email.value}`;
       const url = form.via.value === "whatsapp" ? F.wa(`${F.t("wa_hello", "Bonjour Fanni's Store 🤍 ")}\n${body}`)
         : `mailto:${C.email}?subject=${encodeURIComponent("[Fanni's Store] " + form.subject.value)}&body=${encodeURIComponent(body)}`;

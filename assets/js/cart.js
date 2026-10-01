@@ -127,6 +127,13 @@
       localStorage.setItem("fanni_orders", JSON.stringify(hist.slice(-20)));
     } catch (err) {}
 
+    // enregistrement de la commande dans l'espace admin
+    F.api("/api/orders", {
+      orderNo, pay: form.pay, shipping: ship, lang: F.lang,
+      items: F.cart.items.map(it => ({ id: it.id, name: F.L(it.name), price: it.price, qty: it.qty, options: it.options || {} })),
+      customer: form
+    });
+
     const waUrl = F.wa(msg);
     F.qs("#order-no").textContent = `${F.t("order_no", "Commande")} ${orderNo}`;
     F.qs("#order-text").innerHTML = form.pay === "online"
