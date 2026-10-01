@@ -10,7 +10,7 @@ window.FANNI = window.FANNI || {};
 
 FANNI.config = {
   storeName: "Fanni's Store",
-  whatsapp: "21600000000",               // format international sans « + » ni espaces
+  whatsapp: "21656235927",               // format international sans « + » ni espaces
   email: "bonjour@fannis-store.com",
   instagram: "https://www.instagram.com/fannis.store",
   instagramHandle: "@fannis.store",
