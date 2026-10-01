@@ -69,11 +69,11 @@ FANNI.products = [
       ar: "أول حقيبة لدينا، صُممت كقطعة مجوهرات يومية. حقيبة يد صغيرة أنيقة، بمقابض كريمية مخيطة بعناية ولوحة معدنية محفورة بأحرفها الأولى. تصل في علبة Fanni's Store مع ورق حريري وشريط معقود يدويًا وبطاقة مكتوبة لها."
     },
     includes: { fr: ["Mini sac à main (noir, camel ou rouge)", "Plaque en métal gravée aux initiales", "Box cadeau Fanni's Store & papier de soie", "Carte message écrite à la main"], ar: ["حقيبة يد صغيرة (أسود، جملي أو أحمر)", "لوحة معدنية محفورة بالأحرف الأولى", "علبة هدية Fanni's Store وورق حريري", "بطاقة رسالة مكتوبة باليد"] },
-    images: ["assets/img/produits/sac-initiales-noir.webp", "assets/img/produits/sac-initiales-camel.webp", "assets/img/produits/sac-initiales-rouge.webp"],
+    images: ["assets/img/produits/sac-initiales-couverture.webp", "assets/img/produits/sac-initiales-noir.webp", "assets/img/produits/sac-initiales-camel.webp", "assets/img/produits/sac-initiales-rouge.webp"],
     colors: [
-      { fr: "Noir", ar: "أسود", hex: "#1d1b1f", image: 0 },
-      { fr: "Camel", ar: "جملي", hex: "#b9814f", image: 1 },
-      { fr: "Rouge", ar: "أحمر", hex: "#b3202a", image: 2 }
+      { fr: "Noir", ar: "أسود", hex: "#1d1b1f", image: 1 },
+      { fr: "Camel", ar: "جملي", hex: "#b9814f", image: 2 },
+      { fr: "Rouge", ar: "أحمر", hex: "#b3202a", image: 3 }
     ],
     persoLabel: { fr: "Initiales à graver sur la plaque", ar: "الأحرف الأولى للحفر على اللوحة" },
     art: { v: "box", b: "#2f2544", l: "#4a3f5c", r: "#f47920", bg: "#fff1dc", deco: "heart" }
