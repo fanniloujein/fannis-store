@@ -60,6 +60,25 @@ FANNI.cardStyles = [
 /* art : paramètres de l'illustration générée (v = modèle, b = boîte, l = couvercle, r = ruban, bg = fond) */
 FANNI.products = [
   {
+    id: "box-sac-initiales", occasion: ["anniversaire", "saint-valentin", "fete-parents"], recipient: ["elle"],
+    price: 129, badge: "new", bestseller: true, rating: 5, reviews: 0,
+    name: { fr: "Box Sac à main Initiales", ar: "علبة حقيبة اليد بالأحرف الأولى" },
+    short: { fr: "Mini sac à main avec plaque gravée à ses initiales", ar: "حقيبة يد صغيرة بلوحة محفورة بالأحرف الأولى" },
+    desc: {
+      fr: "Notre tout premier sac, pensé comme un bijou du quotidien. Un mini sac à main élégant, des anses crème cousues avec soin et une plaque en métal gravée à SES initiales. Il arrive dans sa box Fanni's Store, enveloppé de papier de soie, avec un ruban noué à la main et une carte écrite pour elle. Un cadeau qu'elle portera longtemps… et qui raconte votre histoire 🤍",
+      ar: "أول حقيبة لدينا، صُممت كقطعة مجوهرات يومية. حقيبة يد صغيرة أنيقة، بمقابض كريمية مخيطة بعناية ولوحة معدنية محفورة بأحرفها الأولى. تصل في علبة Fanni's Store مع ورق حريري وشريط معقود يدويًا وبطاقة مكتوبة لها."
+    },
+    includes: { fr: ["Mini sac à main (noir, camel ou rouge)", "Plaque en métal gravée aux initiales", "Box cadeau Fanni's Store & papier de soie", "Carte message écrite à la main"], ar: ["حقيبة يد صغيرة (أسود، جملي أو أحمر)", "لوحة معدنية محفورة بالأحرف الأولى", "علبة هدية Fanni's Store وورق حريري", "بطاقة رسالة مكتوبة باليد"] },
+    images: ["assets/img/produits/sac-initiales-noir.webp", "assets/img/produits/sac-initiales-camel.webp", "assets/img/produits/sac-initiales-rouge.webp"],
+    colors: [
+      { fr: "Noir", ar: "أسود", hex: "#1d1b1f", image: 0 },
+      { fr: "Camel", ar: "جملي", hex: "#b9814f", image: 1 },
+      { fr: "Rouge", ar: "أحمر", hex: "#b3202a", image: 2 }
+    ],
+    persoLabel: { fr: "Initiales à graver sur la plaque", ar: "الأحرف الأولى للحفر على اللوحة" },
+    art: { v: "box", b: "#2f2544", l: "#4a3f5c", r: "#f47920", bg: "#fff1dc", deco: "heart" }
+  },
+  {
     id: "box-eclat-de-rose", occasion: ["anniversaire", "fete-parents"], recipient: ["elle"],
     price: 89, bestseller: true, badge: "best", rating: 4.9, reviews: 64,
     name: { fr: "Box Éclat de Rose", ar: "علبة إشراقة الورد" },

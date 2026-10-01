@@ -27,16 +27,29 @@ export function readDefaults(root) {
 
 /* premier démarrage : remplit la base avec le catalogue actuel */
 export async function seed(store, root) {
-  if (await store.getSetting("seeded")) return false;
   const F = readDefaults(root);
+  if (await store.getSetting("seeded")) return addNewProducts(store, F);
   await store.setSetting("config", F.config);
   for (const k of META_KEYS) await store.setSetting(k, F[k]);
   for (const [i, p] of F.products.entries()) await store.put("products", p.id, { ...p, published: true }, i);
   for (const [col, key] of Object.entries(BUILDER_COLS))
     for (const [i, it] of F.builder[key].entries()) await store.put(col, it.id, it, i);
   for (const [i, r] of F.reviews.entries()) await store.put("reviews", "avis-" + (i + 1), r, i);
+  await store.setSetting("seededProducts", F.products.map(p => p.id));
   await store.setSetting("seeded", new Date().toISOString());
   return true;
+}
+
+/* produits ajoutés plus tard dans data.js : importés une seule fois
+   (un produit supprimé depuis l'admin ne revient donc jamais) */
+async function addNewProducts(store, F) {
+  const known = await store.getSetting("seededProducts", null);
+  const existing = new Set((await store.list("products")).map(p => p.id));
+  const done = new Set(known || existing);
+  const fresh = F.products.filter(p => !done.has(p.id) && !existing.has(p.id));
+  for (const p of fresh) await store.put("products", p.id, { ...p, published: true }, -1);
+  if (fresh.length || !known) await store.setSetting("seededProducts", [...new Set([...done, ...F.products.map(p => p.id)])]);
+  return false;
 }
 
 const strip = o => { const { _position, _created, _updated, ...rest } = o; return rest; };

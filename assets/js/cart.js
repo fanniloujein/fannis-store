@@ -4,7 +4,7 @@
   const root = F.qs("#cart-root");
   const optLabels = () => ({
     box: F.t("b_box", "Box"), items: F.t("b_s2", "Articles"), name: F.t("o_name", "Prénom"), to: F.t("b_to", "Pour"), from: F.t("b_from", "De la part de"),
-    message: F.t("o_message", "Message"), ribbon: F.t("o_ribbon", "Ruban"), card: F.t("o_card", "Carte"), wrap: F.t("b_wrap", "Emballage"),
+    color: F.t("o_color", "Couleur"), message: F.t("o_message", "Message"), ribbon: F.t("o_ribbon", "Ruban"), card: F.t("o_card", "Carte"), wrap: F.t("b_wrap", "Emballage"),
     extras: F.t("b_extras", "Finitions"), photo: F.t("o_photo", "Photo")
   });
   let form = { name: "", phone: "", email: "", address: "", city: "", date: "", note: "", pay: "cod", gift: false };

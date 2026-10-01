@@ -44,7 +44,13 @@ export function cleanProduct(p, { occasions = [], recipients = [] } = {}) {
       bg: HEX.test(p.art?.bg) ? p.art.bg : "#fff1dc",
       deco: ART_DECOS.includes(p.art?.deco) ? p.art.deco : "heart"
     },
-    stock: p.stock === "" || p.stock == null ? null : Math.round(num(p.stock, 0, 100000))
+    stock: p.stock === "" || p.stock == null ? null : Math.round(num(p.stock, 0, 100000)),
+    colors: (Array.isArray(p.colors) ? p.colors : []).slice(0, 12).map(c => ({
+      fr: str(c?.fr, 40), ar: str(c?.ar, 40),
+      hex: HEX.test(c?.hex) ? c.hex : "#2f2544",
+      image: Number.isInteger(+c?.image) && +c.image >= 0 && +c.image < 12 ? +c.image : -1
+    })).filter(c => c.fr),
+    persoLabel: bi(p.persoLabel, 60)
   };
   const old = num(p.oldPrice, 0, 100000);
   if (old > out.price) out.oldPrice = old;

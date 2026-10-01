@@ -26,6 +26,8 @@
   F.qs("#crumbs").insertAdjacentHTML("beforeend", `<span>✦</span><span>${F.esc(name)}</span>`);
 
   const defRibbon = F.ribbons.find(r => r.color.toLowerCase() === (p.art.r || "").toLowerCase()) || F.ribbons[0];
+  const colors = (p.colors || []).filter(c => c.fr);
+  const persoLabel = p.persoLabel && (p.persoLabel[F.lang] || p.persoLabel.fr);
   const views = p.images && p.images.length ? p.images.length : 4;
   const opt = (arr, cls) => arr.map(o => `<option value="${o.id}">${F.L(o)}${o.price ? " (+" + F.money(o.price) + ")" : ""}</option>`).join("");
 
@@ -48,9 +50,15 @@
       <ul class="includes">${(p.includes[F.lang] || p.includes.fr).map(i => `<li>${i}</li>`).join("")}</ul>
 
       <form id="custom-form" class="custom-box" novalidate>
+        ${colors.length ? `<div class="field">
+          <span class="label" id="color-label">${F.t("c_color", "Couleur")} : <small id="color-name">${F.L(colors[0])}</small></span>
+          <div class="swatches" role="radiogroup" aria-labelledby="color-label">
+            ${colors.map((c, i) => `<label class="swatch" title="${F.esc(F.L(c))}"><input type="radio" name="couleur" value="${i}" ${i === 0 ? "checked" : ""}><span style="background:${c.hex}"></span><span class="sr-only">${F.esc(F.L(c))}</span></label>`).join("")}
+          </div>
+        </div>` : ""}
         <div class="field-grid">
           <div class="field">
-            <label for="c-name">${F.t("c_name", "Prénom à personnaliser")} <small>(${F.t("optional", "facultatif")})</small></label>
+            <label for="c-name">${persoLabel ? F.esc(persoLabel) : F.t("c_name", "Prénom à personnaliser")} <small>(${F.t("optional", "facultatif")})</small></label>
             <input class="input" id="c-name" name="prenom" maxlength="20" placeholder="${F.t("c_name_ph", "Ex. : Lina")}" autocomplete="off">
           </div>
           <div class="field">
@@ -111,11 +119,11 @@
 
   /* galerie */
   const main = F.qs("#gallery-main");
-  F.qsa(".gallery-thumbs button").forEach(b => b.addEventListener("click", () => {
-    F.qsa(".gallery-thumbs button").forEach(x => { x.classList.remove("is-active"); x.setAttribute("aria-selected", "false"); });
-    b.classList.add("is-active"); b.setAttribute("aria-selected", "true");
-    main.innerHTML = F.art.product(p, +b.dataset.view, F.lang);
-  }));
+  const showView = v => {
+    F.qsa(".gallery-thumbs button").forEach(x => { const on = +x.dataset.view === v; x.classList.toggle("is-active", on); x.setAttribute("aria-selected", on); });
+    main.innerHTML = F.art.product(p, v, F.lang);
+  };
+  F.qsa(".gallery-thumbs button").forEach(b => b.addEventListener("click", () => showView(+b.dataset.view)));
 
   /* onglets */
   F.qsa(".tab-list button").forEach(b => b.addEventListener("click", () => {
@@ -129,7 +137,8 @@
   const getOpts = () => {
     const ribbon = F.ribbons.find(r => r.id === form.ruban.value);
     const card = F.cardStyles.find(c => c.id === form.carte.value);
-    return { ribbon, card, name: form.prenom.value.trim(), message: form.message.value.trim() };
+    const color = colors.length ? colors[+(form.couleur.value || 0)] : null;
+    return { ribbon, card, color, name: form.prenom.value.trim(), message: form.message.value.trim() };
   };
   const unitPrice = () => {
     const o = getOpts();
@@ -138,6 +147,7 @@
   const update = () => {
     const o = getOpts();
     F.qs("#ribbon-name").textContent = F.L(o.ribbon);
+    if (o.color) F.qs("#color-name").textContent = F.L(o.color);
     F.qs("#msg-count").textContent = form.message.value.length;
     const t = F.qs("#live-total");
     t.textContent = F.money(unitPrice() * (+qty.value || 1));
@@ -153,10 +163,15 @@
   const waText = () => {
     const o = getOpts();
     return `${F.t("wa_order_intro", "Bonjour Fanni's Store 🤍 Je souhaite commander :")}\n🎁 ${name} × ${qty.value}\n` +
-      `${F.t("c_ribbon", "Couleur du ruban")} : ${F.L(o.ribbon)}\n${F.t("c_card", "Carte message")} : ${F.L(o.card)}` +
-      (o.name ? `\n${F.t("c_name", "Prénom")} : ${o.name}` : "") + (o.message ? `\n${F.t("c_msg", "Message")} : « ${o.message} »` : "") +
+      (o.color ? `${F.t("c_color", "Couleur")} : ${F.L(o.color)}\n` : "") + `${F.t("c_ribbon", "Couleur du ruban")} : ${F.L(o.ribbon)}\n${F.t("c_card", "Carte message")} : ${F.L(o.card)}` +
+      (o.name ? `\n${persoLabel || F.t("c_name", "Prénom")} : ${o.name}` : "") + (o.message ? `\n${F.t("c_msg", "Message")} : « ${o.message} »` : "") +
       (photo ? `\n📷 ${F.t("wa_photo", "Je vous envoie la photo ici.")}` : "") + `\n${F.t("total", "Total")} : ${F.money(unitPrice() * (+qty.value || 1))}`;
   };
+  form.addEventListener("change", e => {
+    if (e.target.name !== "couleur") return;
+    const c = colors[+e.target.value];
+    if (c && c.image >= 0 && p.images && p.images[c.image]) showView(c.image);
+  });
   form.addEventListener("input", update);
   form.addEventListener("change", update);
   F.qsa("[data-q]").forEach(b => b.addEventListener("click", () => { qty.value = Math.max(1, Math.min(20, (+qty.value || 1) + +b.dataset.q)); update(); }));
@@ -182,11 +197,11 @@
   /* ajout au panier */
   F.qs("#add-cart").addEventListener("click", () => {
     const o = getOpts();
-    const options = { ribbon: F.L(o.ribbon), card: F.L(o.card) };
+    const options = { ...(o.color ? { color: F.L(o.color) } : {}), ribbon: F.L(o.ribbon), card: F.L(o.card) };
     if (o.name) options.name = o.name;
     if (o.message) options.message = o.message;
     if (photo) options.photo = photo;
-    F.cart.add({ id: p.id, name: p.name, price: unitPrice(), qty: +qty.value || 1, art: { ...p.art, r: o.ribbon.color }, image: p.images && p.images[0], options });
+    F.cart.add({ id: p.id, name: p.name, price: unitPrice(), qty: +qty.value || 1, art: { ...p.art, r: o.ribbon.color }, image: p.images && (o.color && o.color.image >= 0 && p.images[o.color.image] || p.images[0]), options });
     F.toast(`🎁 ${name} ${F.t("added", "ajoutée au panier")}`, { href: "panier.html", label: F.t("see_cart", "Voir le panier") });
   });
 

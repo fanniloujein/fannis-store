@@ -353,9 +353,9 @@
 
   async function pageProduct(page, id) {
     const isNew = !id;
-    const blank = { name: { fr: "", ar: "" }, short: { fr: "", ar: "" }, desc: { fr: "", ar: "" }, includes: { fr: [], ar: [] }, price: "", oldPrice: "", priceFrom: false, custom: false, occasion: [], recipient: S.settings.recipients.map(r => r.id), badge: "", bestseller: false, rating: 5, reviews: 0, images: [], art: { v: "box", b: "#f47920", l: "#ff8a3d", r: "#ffc933", bg: "#fff1dc", deco: "heart" }, published: true, stock: "" };
+    const blank = { name: { fr: "", ar: "" }, short: { fr: "", ar: "" }, desc: { fr: "", ar: "" }, includes: { fr: [], ar: [] }, price: "", oldPrice: "", priceFrom: false, custom: false, occasion: [], recipient: S.settings.recipients.map(r => r.id), badge: "", bestseller: false, rating: 5, reviews: 0, images: [], art: { v: "box", b: "#f47920", l: "#ff8a3d", r: "#ffc933", bg: "#fff1dc", deco: "heart" }, published: true, stock: "", colors: [], persoLabel: { fr: "", ar: "" } };
     let P = isNew ? clone(blank) : await api("/products/" + encodeURIComponent(id));
-    P = { ...clone(blank), ...P, includes: { fr: [], ar: [], ...(P.includes || {}) }, art: { ...blank.art, ...(P.art || {}) } };
+    P = { ...clone(blank), ...P, includes: { fr: [], ar: [], ...(P.includes || {}) }, art: { ...blank.art, ...(P.art || {}) }, colors: P.colors || [], persoLabel: { fr: "", ar: "", ...(P.persoLabel || {}) } };
     let lang = "fr";
     setTitle(isNew ? "Nouveau produit" : P.name.fr, isNew ? "Produits › Ajouter" : "Produits › Modifier");
     const occ = S.settings.occasions, rec = S.settings.recipients;
@@ -376,6 +376,11 @@
             <div class="field"><label for="f-old">Prix barré <span class="muted">(promo)</span></label><div class="prefix"><input class="in" id="f-old" type="number" min="0" step="0.5" inputmode="decimal" value="${esc(P.oldPrice || "")}"><span>${esc(cur())}</span></div></div>
             <div class="field"><label for="f-stock">Stock <span class="muted">(facultatif)</span></label><input class="in" id="f-stock" type="number" min="0" step="1" value="${esc(P.stock ?? "")}" placeholder="Illimité"></div>
           </div><div class="row" style="margin-top:14px;gap:24px"><label class="check"><input type="checkbox" id="f-from" ${P.priceFrom ? "checked" : ""}> Afficher « dès » devant le prix</label><label class="check"><input type="checkbox" id="f-custom" ${P.custom ? "checked" : ""}> C'est la « box sur mesure » (renvoie vers le configurateur)</label></div></div></section>
+          <section class="card"><div class="card-h"><h2>Couleurs & personnalisation</h2><div class="grow"></div><span class="muted" style="font-size:12.5px">facultatif</span></div><div class="card-b stack">
+            <div class="field"><span class="lbl">Couleurs proposées <span class="muted">(la cliente choisit ; la photo liée s'affiche)</span></span><div class="list-ed" id="colors"></div><button type="button" class="btn ghost sm" id="add-color" style="width:fit-content">${I.plus}Ajouter une couleur</button></div>
+            <div class="grid cols-2"><div class="field"><label for="f-pl-fr">Texte du champ à personnaliser</label><input class="in" id="f-pl-fr" maxlength="60" value="${esc(P.persoLabel.fr)}" placeholder="Prénom à personnaliser"></div>
+            <div class="field"><label for="f-pl-ar">Le même en arabe</label><input class="in" id="f-pl-ar" dir="rtl" maxlength="60" value="${esc(P.persoLabel.ar)}" placeholder="الاسم للتخصيص"></div></div>
+          </div></section>
         </div>
         <div class="aside">
           <section class="card"><div class="card-h"><h2>Visibilité</h2></div><div class="card-b"><label class="switch"><input type="checkbox" id="f-pub" ${P.published !== false ? "checked" : ""}><i></i><span id="pubtxt"></span></label></div></section>
@@ -443,6 +448,7 @@
 
     /* photos */
     function drawGallery(uploading = 0) {
+      if ($("#colors")) setTimeout(drawColors);
       $("#gal").innerHTML = P.images.map((u, i) => `<div class="gal" draggable="true" data-i="${i}">${i === 0 ? '<span class="cover">COUVERTURE</span>' : ""}<img src="${esc(u)}" alt="Photo ${i + 1}"><button type="button" class="rm" data-rmimg="${i}" aria-label="Retirer la photo">${I.trash}</button></div>`).join("") + Array.from({ length: uploading }, () => `<div class="gal up"><div class="spinner"></div></div>`).join("");
       let from = null;
       $$(".gal[draggable]").forEach(g => {
@@ -471,6 +477,20 @@
     ["dragleave", "drop"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("over"); }));
     drop.addEventListener("drop", e => upload(e.dataTransfer.files));
     drawGallery();
+
+    /* couleurs */
+    function drawColors() {
+      const opts = sel => `<option value="-1">Photo liée : aucune</option>` + P.images.map((_, i) => `<option value="${i}" ${+sel === i ? "selected" : ""}>Photo liée : n° ${i + 1}</option>`).join("");
+      $("#colors").innerHTML = P.colors.map((c, i) => `<div class="li"><input type="color" data-cc="${i}" data-k="hex" value="${esc(c.hex)}" aria-label="Couleur" style="width:44px;height:40px;border:1px solid var(--line);border-radius:10px;padding:2px;background:#fff">
+        <input class="in" data-cc="${i}" data-k="fr" value="${esc(c.fr)}" maxlength="40" placeholder="Nom (ex. : Noir)"><input class="in" data-cc="${i}" data-k="ar" dir="rtl" value="${esc(c.ar)}" maxlength="40" placeholder="بالعربية">
+        <select class="in" data-cc="${i}" data-k="image" style="max-width:170px">${opts(c.image)}</select><button type="button" class="icon-btn red" data-ccdel="${i}" aria-label="Supprimer">${I.trash}</button></div>`).join("") || `<p class="muted" style="margin:0;font-size:13px">Aucune couleur : le produit n'a pas de choix de couleur.</p>`;
+    }
+    $("#colors").addEventListener("input", e => { const t = e.target; if (t.dataset.cc === undefined) return; P.colors[+t.dataset.cc][t.dataset.k] = t.dataset.k === "image" ? +t.value : t.value; dirty(); });
+    $("#colors").addEventListener("click", e => { const d = e.target.closest("[data-ccdel]"); if (d) { P.colors.splice(+d.dataset.ccdel, 1); drawColors(); dirty(); } });
+    $("#add-color").onclick = () => { P.colors.push({ fr: "", ar: "", hex: "#2f2544", image: Math.min(P.colors.length, P.images.length - 1) }); drawColors(); $$("#colors [data-k=fr]").pop()?.focus(); dirty(); };
+    $("#f-pl-fr").oninput = e => { P.persoLabel.fr = e.target.value; dirty(); };
+    $("#f-pl-ar").oninput = e => { P.persoLabel.ar = e.target.value; dirty(); };
+    drawColors();
 
     /* autres champs */
     const bindNum = (sel, key) => $(sel).addEventListener("input", e => { P[key] = e.target.value; e.target.classList.remove("bad"); dirty(); });
@@ -506,7 +526,7 @@
       if (!P.occasion.length) { errs.push("au moins une occasion"); $("#f-occ").style.outline = "2px solid var(--red)"; $("#f-occ").style.borderRadius = "10px"; }
       if (errs.length) return toast("Il manque " + errs.join(", ") + ".", "err");
       const btns = [$("#save"), $("#sb-save")].filter(Boolean); btns.forEach(b => (b.disabled = true));
-      const body = { ...P, includes: { fr: P.includes.fr.filter(s => s.trim()), ar: P.includes.ar.filter(s => s.trim()) } };
+      const body = { ...P, colors: P.colors.filter(c => c.fr.trim()), includes: { fr: P.includes.fr.filter(s => s.trim()), ar: P.includes.ar.filter(s => s.trim()) } };
       try {
         const r = isNew ? await api("/products", { method: "POST", body }) : await api("/products/" + encodeURIComponent(P.id), { method: "PUT", body });
         S.dirty = false; $(".savebar")?.remove();
