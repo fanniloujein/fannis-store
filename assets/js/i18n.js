@@ -14,7 +14,7 @@ FANNI.AR = {
   footer_about: "هدايا مخصصة تُحضَّر يدوياً، تحوّل مشاعركم إلى ذكريات. لأن الهدية يجب أن تروي قصة 🤍",
   footer_shop: "المتجر", footer_house: "البيت", footer_faq: "الأسئلة الشائعة", footer_delivery: "التوصيل والمواعيد",
   footer_news: "رسالة لطيفة", footer_news_txt: "جديدنا، الإصدارات المحدودة واللفتات الصغيرة، مرة في الشهر.",
-  footer_made: "صُنع يدوياً بحب", email_ph: "بريدك الإلكتروني", subscribe: "اشترك",
+  footer_made: "صُنع يدوياً بحب", footer_sign: "فكرة وإبداع بكل حب من", email_ph: "بريدك الإلكتروني", subscribe: "اشترك",
   pay_methods: "وسائل الدفع", pay_cod_short: "الدفع عند الاستلام",
   legal: "معلومات قانونية", legal_notice: "الإشعارات القانونية", terms: "شروط البيع", privacy: "الخصوصية",
   email_invalid: "يرجى إدخال بريد إلكتروني صحيح ✉️",

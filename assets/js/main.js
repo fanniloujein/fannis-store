@@ -225,6 +225,10 @@
             <a href="mentions-legales.html#confidentialite">${F.t("privacy", "Confidentialité")}</a>
           </nav>
         </div>
+        <div class="container footer-sign">
+          <span>${F.t("footer_sign", "Imaginé & créé avec amour par")}</span>
+          <a href="${F.config.instagram}" target="_blank" rel="noopener" class="sign" title="Loujein Fanni">Loujein Fanni<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.4 5c2 0 3.6 1.1 4.4 2.6h2.4C14 6.1 15.6 5 17.6 5 21 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg></a>
+        </div>
       </footer>
       <a class="wa-float" href="${F.wa(F.t("wa_hello", "Bonjour Fanni's Store 🤍 "))}" target="_blank" rel="noopener" aria-label="${F.t("wa_aria", "Commander ou poser une question sur WhatsApp")}">
         ${F.icons.whatsapp}<span class="wa-bubble">${F.t("wa_bubble", "Une question ? Écrivez-nous 🤍")}</span>

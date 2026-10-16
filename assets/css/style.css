@@ -529,6 +529,12 @@ em.hand, .hand { font-family: var(--font-hand); font-style: normal; color: var(-
   border-top: 1px solid var(--beige); padding: 22px 0; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
   font-size: 0.8rem; color: var(--muted);
 }
+.footer-sign { display: flex; align-items: baseline; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 4px 0 26px; font-size: 0.74rem; letter-spacing: 0.06em; color: var(--muted); }
+.footer-sign .sign { font-family: "Mansalva", cursive; font-size: 1.45rem; letter-spacing: 0; color: var(--spark); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transform: rotate(-3deg); transition: transform .3s, color .3s; }
+.footer-sign .sign svg { width: 13px; height: 13px; color: var(--spark); animation: signBeat 1.6s ease-in-out infinite; }
+.footer-sign .sign:hover { color: var(--rose-deep); transform: rotate(-3deg) scale(1.06); }
+@keyframes signBeat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.3); } 30% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .footer-sign .sign svg { animation: none; } }
 .footer-bottom nav { display: flex; gap: 18px; flex-wrap: wrap; }
 .pay-icons { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
 .pay-icons span { font-size: 0.7rem; border: 1px solid var(--beige); padding: 4px 10px; border-radius: 6px; letter-spacing: 0.05em; }
